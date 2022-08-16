@@ -1,0 +1,41 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-light " style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="/"><img src="https://w7.pngwing.com/pngs/522/512/png-transparent-e-commerce-2018-online-shopping-amazon-com-supermercado-text-retail-logo-thumbnail.png" alt="" width="30" height="24">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">E - Store <span class="sr-only">(current)</span></a>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Catagories
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Tech</a>
+            <a class="dropdown-item" href="#">Food</a>
+            <a class="dropdown-item" href="#">Clothing</a>
+          </div>
+        </li>
+        
+      </ul>
+      <% if(user.name) {%>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+        <a class=" form-inline  my-2 my-lg-0 rounded" ><img src="<%= user.pic %>" alt="" width="30" height="24">
+                    <a class="nav-link mr-sm-2" >Welcome <%= user.name %></span></a>
+            </div>
+        <form method="get" action="/logout" class="form-inline  my-2 my-lg-0">
+            <button class="btn btn-outline-success mr-sm-2" >Logout</button>  
+          </form>
+      <% }else { %>
+      <form method="get" action="/user/login" class="form-inline  my-2 my-lg-0">
+        <button class="btn btn-outline-success mr-sm-2" >Register/Login</button>  
+      </form>
+      <% } %>
+      
+    </div>
+  </nav>

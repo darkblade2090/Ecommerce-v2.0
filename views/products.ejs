@@ -1,0 +1,27 @@
+<%- include("partials/header"),{user : user} %>
+<%- include("partials/nav"),{user : user}%>
+
+<form method="post" action="/products" enctype="multipart/form-data" >
+            
+
+    <label for="name">Product Name :</label>
+    <input required type="text" name="productName" placeholder="Product name" id="productName">
+
+    <label for="productDescription">Description : </label>
+    <input required type="text" name="productDescription" placeholder="Product Description" id="productDescription">
+
+    <label for="productCatagory">Catagory : </label>
+    <input required type="text" name="productCatagory" placeholder="Product Catagory" id="productCatagory">
+
+    <label for="price">Price : </label>
+    <input required type="text" name="price" placeholder="price" id="price">
+
+    <label for="pic">Product Pic : </label>
+        <input type="file" name="productImg"/>
+
+
+    <button>Add Product</button>
+    </form>
+
+
+<%- include('partials/footer') %>
