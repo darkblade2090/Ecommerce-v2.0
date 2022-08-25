@@ -7,4 +7,5 @@ module.exports = function initiateRoutes(app)
     app.use('/', homeRoutes);
     app.use('/user', userRoutes);
     app.use('/products', productRoutes);
+    
 }

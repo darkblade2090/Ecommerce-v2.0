@@ -1,6 +1,6 @@
 <%- include('partials/header'),{user : user} %>
 <%- include("partials/nav"),{user : user}%>
-<link rel="stylesheet" href="/public/styles/logSign.css">
+<link rel="stylesheet" href="/styles/logSign.css">
 
 <section class="vh-100">
         <div class="container-fluid h-custom">
@@ -10,7 +10,7 @@
                 class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-              <form method="post" action="/user/signup" enctype="multipart/form-data">
+              <form method="post" action="/user/signup" enctype="multipart/form-data" role="form" data-toggle="validator" diasbled  onsubmit="return validateSubmit()">
                 
                 <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                         <p class="lead fw-normal mb-0 me-3 justify-content-center">Sign Up</p>
@@ -18,33 +18,76 @@
                         <div class="divider d-flex align-items-center my-4">
                                 <p class="text-center fw-bold mx-3 mb-0"></p>
                         </div>
-
+                        <div class="d-flex justify-content-center">
+                        <%if(user.message){%>
+                          <h5 class="text-danger m-2"><%=user.message%></h5>
+                        <%}%>
+                        
+                          <%if(user.result==false){%>
+                          <h5 class="text-danger m-2">Signup Failed</h5>
+                          <%}%>
+                          <%if(user.result==true){%>
+                            <h5 class="text-success m-2">Signup Successful! Please login.</h5>
+                            <%}%>
+                        
+                        </div>
                         <!-- Name input -->
                         <div class="form-outline mb-4">
-                            <input required type="text" name="userName"  id="form3Example3" class="form-control form-control-lg"
-                              placeholder="Enter your name" />
-                            <label class="form-label" for="name">Full Name</label>
+                          <label class="form-label" for="name">Full Name</label>
+                            <input required="required" type="text" name="userName"  id="userName" class="form-control form-control-lg"
+                              placeholder="Enter your name" />                           
+                            <div class="invalid-feedback">
+                              First character must be capital and requires minimum 2 characters
+                          </div>
+                          <div class="valid-feedback">
+                              Valid
+                          </div>
                           </div>
 
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                                <input required type="text" name="email"  id="form3Example3" class="form-control form-control-lg"
-                                  placeholder="Enter a valid email address" />
-                                <label class="form-label" for="email">Email address</label>
+                          <label class="form-label" for="email">Email address</label>
+                                <input required="required" type="email" name="email"  id="email" class="form-control form-control-lg"
+                                  placeholder="Enter a valid email address" />                               
+                                <div class="invalid-feedback">
+                                  Email should be in valid format
+                              </div>
+                              <div class="valid-feedback">
+                                  Valid
+                              </div>
                               </div>
               
                         <!-- Password input -->
                         <div class="form-outline mb-3">
-                          <input required type="password" name="password" id="form3Example4" class="form-control form-control-lg"
-                            placeholder="Enter password" />
                           <label class="form-label" for="password">Password</label>
+                          <input required="required" type="password" name="password" id="password" class="form-control form-control-lg"
+                            placeholder="Enter password" />                         
+                          <div class="invalid-feedback">
+                            A password must be between 8 to 15 characters which contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character
+                        </div>
+                        <div class="valid-feedback">
+                            Valid
+                        </div>
+                        </div>
+                        
+                        <!--Confirm Password-->
+                        <div class="form-outline mb-3">
+                          <label class="form-label" for="password">Confirm Password</label>
+                          <input required="required" type="password" id="rePassword" class="form-control form-control-lg"
+                            placeholder="Confirm password" />                        
+                          <div class="invalid-feedback">
+                            It should be same as your password
+                        </div>
+                        <div class="valid-feedback">
+                            Valid
+                        </div>
                         </div>
                         
                         <!-- Profile Pic input -->
                         <div class="form-outline mb-4">
-                            <input type="file" name="pic"  id="form3Example3" class="form-control form-control-lg"
-                              placeholder="Upload pic" />
-                            <label class="form-label" for="pic">Profile pic</label>
+                          <label class="form-label" for="pic">Profile pic</label>
+                            <input  type="file" name="pic"  id="form3Example3" class="form-control form-control-lg"
+                              placeholder="Upload pic" />                           
                           </div>
 
               
@@ -60,5 +103,6 @@
                   </div>
                 </div>
                 </section>
-         
+
+<script src="/scripts/logSign.js"></script>       
 <%- include('partials/footer'); %>

@@ -1,7 +1,7 @@
 <%- include('partials/header'),{user : user} %>
 <%- include("partials/nav"),{user : user}%>
 
-<link rel="stylesheet" href="/public/styles/logSign.css">
+<link rel="stylesheet" href="/styles/logSign.css">
 
 
 <!-- Form-->
@@ -13,7 +13,7 @@
                 class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-              <form method="post" action="/user/login">
+              <form method="post" class="needs-validation" action="/user/login">
                 
                 <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                         <p class="lead fw-normal mb-0 me-3 justify-content-center">Sign in</p>
@@ -21,22 +21,31 @@
                         <div class="divider d-flex align-items-center my-4">
                                 <p class="text-center fw-bold mx-3 mb-0"></p>
                         </div>
+
+                        <div class="d-flex justify-content-center">                        
+                              <h5 class="text-danger">
+                                <%if(user.message){%>
+                                  <%= user.message %>
+                                <%}%>
+                                </h5>
+                        </div>
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                                <input required type="text" name="email"  id="form3Example3" class="form-control form-control-lg"
-                                  placeholder="Enter a valid email address" />
-                                <label class="form-label" for="email">Email address</label>
+                          <label class="form-label" for="email">Email address</label>
+                                <input required type="email" name="email"  id="email" class="form-control form-control-lg "
+                                  placeholder="Enter a valid email address" />                                
                               </div>
+                              
               
                         <!-- Password input -->
                         <div class="form-outline mb-3">
-                          <input required type="password" name="password" id="form3Example4" class="form-control form-control-lg"
-                            placeholder="Enter password" />
                           <label class="form-label" for="password">Password</label>
+                          <input required type="password" name="password" id="password" class="form-control form-control-lg"
+                            placeholder="Enter password" />                        
                         </div>
               
                         <div class="d-flex justify-content-between align-items-center">
-                          <a class="text-body">Forgot password?</a>
+                          <a href="/user/forgot" class="text-body">Forgot password?</a>
                         </div>
               
                         <div class="text-center text-lg-start mt-4 pt-2">

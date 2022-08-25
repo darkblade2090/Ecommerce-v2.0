@@ -17,7 +17,7 @@ app.use(session({
   app.use(express.urlencoded({ extended: true }));
   
 
-app.use( express.static("./static") );
+
 app.use( express.static("./public") );
 app.use( express.static("./uploads") );
   

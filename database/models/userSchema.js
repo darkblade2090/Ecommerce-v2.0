@@ -24,6 +24,14 @@ isVerified: {
   default: false,
   required: true
 },
+
+forgotPass : 
+{
+  type : Boolean,
+  default: false,
+  required: true
+},
+
 uId : {
   type: String,
   default: Date.now(),
