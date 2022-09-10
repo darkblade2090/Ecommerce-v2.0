@@ -11,7 +11,6 @@ module.exports =async function(req, res)
         user.name = req.session.userName;
         user.pic = req.session.pic;
         user.cart=count;
-
         res.render('homePage.ejs',{user : user});
         return;
     }

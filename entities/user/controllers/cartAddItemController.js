@@ -20,7 +20,7 @@ module.exports =async function(req,res) {
             await cartModel.create({
                 productId: productId,
                 quantity: 1,
-                userEmail: req.session.email
+                userEmail: req.session.email,
                 });
           }
           res.redirect('/')
