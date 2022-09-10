@@ -6,14 +6,7 @@ rePassword.addEventListener("keyup",rePasswordValidate);
 
 function validateSubmit()
 {
-    if(userName.value == ''){
-        userName.classList.add('is-invalid');
-        return false;
-    }
-    if(email.value == ''){
-        userName.classList.add('is-invalid');
-        return false;
-    }
+   
     if(password.value == ''){
         userName.classList.add('is-invalid');
         return false;
@@ -26,7 +19,7 @@ function validateSubmit()
     var decimal=  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
     //console.log(decimal.test(password.value))
 
-    return decimal.test(password.value);
+    return (decimal.test(password.value) && password.value==rePassword.value);
 }
 
 function passwordValidate() {

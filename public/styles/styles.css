@@ -79,6 +79,24 @@ a{
     text-decoration: none !important;
 }
 
+.foot {
+    position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
 .product_view .modal-dialog{max-width: 700px; width: 150%;}
 .pre-cost{text-decoration: line-through; color: #a5a5a5;}
 .space-ten{padding: 10px 0;}
+
+/*cart*/
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #6a11cb;
+    
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+    
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1))
+    }

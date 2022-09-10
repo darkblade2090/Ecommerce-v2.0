@@ -15,6 +15,7 @@ module.exports = async function(req,res)
                 {
                     req.session.isAuthenticated = true;
                     req.session.userName = user.userName;
+                    req.session.email = user.email; 
                     req.session.pic = user.pic;
                     res.redirect('/');
                     return;
